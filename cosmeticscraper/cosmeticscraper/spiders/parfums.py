@@ -1,8 +1,8 @@
 import scrapy
-from model import CosmeticItem
+from ..items import CosmeticItem
+
 
 class ParfumsSpide(scrapy.Spider):
-
 
     name = "parfums"
     start_urls = ['https://parfums.ua/category/salonnaya-kosmetika/brand=klapp']
@@ -10,6 +10,7 @@ class ParfumsSpide(scrapy.Spider):
     custom_settings = {
         'FEED_EXPORT_ENCODING': 'utf-8'
     }
+
     def parse(self, response, **kwargs):
         products = response.xpath('//div[@class="product_info"]/a/@href').extract()
         for product in products:

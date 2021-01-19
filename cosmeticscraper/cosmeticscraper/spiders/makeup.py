@@ -1,5 +1,6 @@
 import scrapy
-from model import CosmeticItem
+from ..items import CosmeticItem
+
 
 class MakeupSpide(scrapy.Spider):
 
